@@ -1,4 +1,4 @@
-package ua.hillel.katerynashpak.Service.service;
+package ua.hillel.katerynashpak.service.service;
 
 public class Product {
     private int id;

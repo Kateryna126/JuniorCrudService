@@ -1,9 +1,9 @@
-package ua.hillel.katerynashpak.Service.service;
+package ua.hillel.katerynashpak.service.service;
 
 import java.util.Date;
 import java.util.List;
 
-public class Order  {
+public class OrderRecord {
     private int id;
     private Date date;
     private double cost;

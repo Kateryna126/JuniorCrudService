@@ -1,4 +1,4 @@
-package ua.hillel.katerynashpak.Service;
+package ua.hillel.katerynashpak.service;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
