@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+import ua.hillel.katerynashpak.service.model.OrderRecord;
 
 import java.util.*;
 
@@ -27,7 +28,7 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
-    public void addOrder(OrderRecord orderRecord) {
+    public void createOrder(OrderRecord orderRecord) {
         String sql = "INSERT INTO Hillel_service (id, date, cost, products) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(sql, orderRecord.getId(), orderRecord.getDate(), orderRecord.getCost(), orderRecord.getProducts());
     }

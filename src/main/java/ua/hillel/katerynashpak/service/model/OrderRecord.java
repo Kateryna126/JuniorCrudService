@@ -1,4 +1,6 @@
-package ua.hillel.katerynashpak.service.service;
+package ua.hillel.katerynashpak.service.model;
+
+import ua.hillel.katerynashpak.service.model.Product;
 
 import java.util.Date;
 import java.util.List;

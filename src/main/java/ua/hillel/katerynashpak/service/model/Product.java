@@ -1,6 +1,12 @@
-package ua.hillel.katerynashpak.service.service;
+package ua.hillel.katerynashpak.service.model;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Product {
+    @Id
     private int id;
     private String name;
     private double cost;
