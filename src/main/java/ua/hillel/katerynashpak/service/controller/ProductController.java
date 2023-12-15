@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import ua.hillel.katerynashpak.service.model.Product;
 import ua.hillel.katerynashpak.service.service.ProductService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/products")
 public class ProductController {
@@ -15,6 +17,11 @@ public class ProductController {
     @GetMapping("/{id}")
     public Product getProduct(@PathVariable int id) {
         return productService.getProduct(id);
+    }
+
+    @GetMapping
+    public List<Product> getAllProducts() {
+        return productService.getAllProducts();
     }
 
     @PostMapping

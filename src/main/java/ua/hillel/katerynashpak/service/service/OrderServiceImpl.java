@@ -2,47 +2,44 @@ package ua.hillel.katerynashpak.service.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import ua.hillel.katerynashpak.service.model.OrderRecord;
+import ua.hillel.katerynashpak.service.repository.OrderRepository;
 
 import java.util.*;
 
 @Service
 public class OrderServiceImpl implements OrderService {
+
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private OrderRepository orderRepository;
 
     @Override
     public OrderRecord getOrder(int id) {
-        String sql = "SELECT * FROM Hillel_service WHERE id = ?";
-        return jdbcTemplate.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<>(OrderRecord.class));
+        return orderRepository.findById(id).orElse(null);
     }
 
     @Override
     public List<OrderRecord> getAllOrders() {
-        String sql = "SELECT * FROM Hillel_service";
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(OrderRecord.class));
+        return (List<OrderRecord>) orderRepository.findAll();
     }
-
 
     @Override
     public void createOrder(OrderRecord orderRecord) {
-        String sql = "INSERT INTO Hillel_service (id, date, cost, products) VALUES (?, ?, ?, ?)";
-        jdbcTemplate.update(sql, orderRecord.getId(), orderRecord.getDate(), orderRecord.getCost(), orderRecord.getProducts());
+        orderRepository.save(orderRecord);
     }
 
     @Override
     public void updateOrder(int id, OrderRecord orderRecord) {
-        String sql = "UPDATE Hillel_service SET date = ?, cost = ?, products = ? WHERE id = ?";
-        jdbcTemplate.update(sql, orderRecord.getDate(), orderRecord.getCost(), orderRecord.getProducts(), id);
+        if (orderRepository.existsById(id)) {
+            orderRecord.setId(id);
+            orderRepository.save(orderRecord);
+        }
     }
 
     @Override
     public void deleteOrder(int id) {
-        String sql = "DELETE FROM Hillel_service WHERE id = ?";
-        jdbcTemplate.update(sql, id);
+        orderRepository.deleteById(id);
     }
 }
 

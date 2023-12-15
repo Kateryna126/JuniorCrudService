@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import ua.hillel.katerynashpak.service.model.OrderRecord;
 import ua.hillel.katerynashpak.service.service.OrderService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/orders")
 public class OrderController {
@@ -15,6 +17,11 @@ public class OrderController {
     @GetMapping("/{id}")
     public OrderRecord getOrder(@PathVariable int id) {
         return orderService.getOrder(id);
+    }
+
+    @GetMapping
+    public List<OrderRecord> getAllOrders() {
+        return orderService.getAllOrders();
     }
 
     @PostMapping
