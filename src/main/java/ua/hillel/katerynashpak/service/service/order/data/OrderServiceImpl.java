@@ -1,10 +1,11 @@
-package ua.hillel.katerynashpak.service.service;
+package ua.hillel.katerynashpak.service.service.order.data;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.hillel.katerynashpak.service.model.OrderRecord;
 import ua.hillel.katerynashpak.service.repository.OrderRepository;
+import ua.hillel.katerynashpak.service.service.order.jpa.OrderService;
 
 import java.util.*;
 

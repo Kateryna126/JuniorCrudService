@@ -3,7 +3,7 @@ package ua.hillel.katerynashpak.service.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ua.hillel.katerynashpak.service.model.Product;
-import ua.hillel.katerynashpak.service.service.ProductService;
+import ua.hillel.katerynashpak.service.service.order.jpa.ProductService;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package ua.hillel.katerynashpak.service.service;
+package ua.hillel.katerynashpak.service.service.order.jpa;
 
 import ua.hillel.katerynashpak.service.model.Product;
 

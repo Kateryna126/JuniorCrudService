@@ -1,9 +1,10 @@
-package ua.hillel.katerynashpak.service.service;
+package ua.hillel.katerynashpak.service.service.order.data;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.hillel.katerynashpak.service.model.Product;
 import ua.hillel.katerynashpak.service.repository.ProductRepository;
+import ua.hillel.katerynashpak.service.service.order.jpa.ProductService;
 
 import java.util.List;
 
@@ -15,9 +16,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProduct(int id) {
-        return productRepository.findById(id).orElse(null);
+        return productRepository.findById(id).orElseThrow(RuntimeException::new);
     }
-
     @Override
     public List<Product> getAllProducts() {
         return (List<Product>) productRepository.findAll();
