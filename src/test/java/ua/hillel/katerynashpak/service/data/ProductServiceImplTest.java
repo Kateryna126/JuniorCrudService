@@ -1,14 +1,13 @@
-package ua.hillel.katerynashpak.service.service.order.data;
+package ua.hillel.katerynashpak.service.data;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ua.hillel.katerynashpak.service.model.Product;
-import ua.hillel.katerynashpak.service.repository.ProductRepository;
+import ua.hillel.katerynashpak.model.Product;
+import ua.hillel.katerynashpak.repository.ProductRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class ProductServiceImplTest {
+class ProductServiceImplTest {
 
     @Mock
     private ProductRepository productRepository;
@@ -30,12 +29,11 @@ public class ProductServiceImplTest {
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
         product = new Product();
     }
 
     @Test
-    public void shouldReturnProductWhenGetProductIsCalled() {
+    void shouldReturnProductWhenGetProductIsCalled() {
         when(productRepository.findById(1)).thenReturn(Optional.of(product));
 
         Product result = productService.getProduct(1);
@@ -45,7 +43,7 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void shouldReturnAllProductsWhenGetAllProductsIsCalled() {
+    void shouldReturnAllProductsWhenGetAllProductsIsCalled() {
         List<Product> products = new ArrayList<>();
         when(productRepository.findAll()).thenReturn(products);
 
@@ -56,7 +54,7 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void shouldSaveProductWhenCreateProductIsCalled() {
+    void shouldSaveProductWhenCreateProductIsCalled() {
         when(productRepository.save(product)).thenReturn(product);
 
         productService.createProduct(product);
@@ -65,7 +63,7 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void shouldUpdateProductWhenUpdateProductIsCalled() {
+    void shouldUpdateProductWhenUpdateProductIsCalled() {
         when(productRepository.existsById(1)).thenReturn(true);
 
         productService.updateProduct(1, product);
@@ -74,7 +72,7 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void shouldDeleteProductWhenDeleteProductIsCalled() {
+    void shouldDeleteProductWhenDeleteProductIsCalled() {
         doNothing().when(productRepository).deleteById(1);
 
         productService.deleteProduct(1);

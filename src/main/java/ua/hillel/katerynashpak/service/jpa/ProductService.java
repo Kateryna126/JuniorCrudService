@@ -1,9 +1,9 @@
-package ua.hillel.katerynashpak.service.service.order.jpa;
+package ua.hillel.katerynashpak.service.jpa;
 
-import ua.hillel.katerynashpak.service.model.Product;
+import org.springframework.stereotype.Service;
+import ua.hillel.katerynashpak.model.Product;
 
 import java.util.List;
-
 public interface ProductService {
     Product getProduct(int id);
     List<Product> getAllProducts();

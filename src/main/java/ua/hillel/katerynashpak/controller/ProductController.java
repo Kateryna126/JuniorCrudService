@@ -1,14 +1,14 @@
-package ua.hillel.katerynashpak.service.controller;
+package ua.hillel.katerynashpak.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import ua.hillel.katerynashpak.service.model.Product;
-import ua.hillel.katerynashpak.service.service.order.jpa.ProductService;
+import ua.hillel.katerynashpak.model.Product;
+import ua.hillel.katerynashpak.service.jpa.ProductService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/products")
+@RequestMapping("/api/v6/products")
 public class ProductController {
 
     @Autowired

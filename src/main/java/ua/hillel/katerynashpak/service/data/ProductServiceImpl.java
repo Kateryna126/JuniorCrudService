@@ -1,10 +1,10 @@
-package ua.hillel.katerynashpak.service.service.order.data;
+package ua.hillel.katerynashpak.service.data;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ua.hillel.katerynashpak.service.model.Product;
-import ua.hillel.katerynashpak.service.repository.ProductRepository;
-import ua.hillel.katerynashpak.service.service.order.jpa.ProductService;
+import ua.hillel.katerynashpak.model.Product;
+import ua.hillel.katerynashpak.repository.ProductRepository;
+import ua.hillel.katerynashpak.service.jpa.ProductService;
 
 import java.util.List;
 

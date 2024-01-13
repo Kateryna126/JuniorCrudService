@@ -1,20 +1,21 @@
-package ua.hillel.katerynashpak.service.model;
+package ua.hillel.katerynashpak.model;
 
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
+
 
 @Getter
 @Setter
 @Builder
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table("product")
+@Table(name = "products")
 public class Product {
     @Id
+    @GeneratedValue
     private int id;
     private String name;
     private double cost;
-
 }
 
