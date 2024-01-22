@@ -24,7 +24,7 @@ public class Hw17Application {
     }
     @Bean
     public ProductMapper productMapper() {
-        return new ProductMapperImpl();  // Припустимо, ProductMapperImpl - це згенерована реалізація MapStruct.
+        return new ProductMapperImpl();
     }
     @Bean
     public Logger logger() {
