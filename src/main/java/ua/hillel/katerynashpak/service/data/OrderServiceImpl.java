@@ -2,6 +2,7 @@ package ua.hillel.katerynashpak.service.data;
 
 
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.hillel.katerynashpak.converter.OrderConverter;
@@ -14,7 +15,7 @@ import ua.hillel.katerynashpak.service.jpa.OrderService;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
-
+@Slf4j
 @Service
 public class OrderServiceImpl implements OrderService {
 
@@ -52,6 +53,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<OrderRecordDto> getOrders() {
+        log.debug("Get all orders");
         Iterable<OrderRecord> orderIterable = orderRepository.findAll();
         List<OrderRecord> orders = StreamSupport.stream(orderIterable.spliterator(), false)
                 .toList();
@@ -63,12 +65,14 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void createOrder(OrderRecordDto dto) {
+        log.debug("Creating order: {}", dto);
         OrderRecord orderRecord = orderMapper.orderDtoToOrder(dto);
         orderRepository.save(orderRecord);
     }
 
     @Override
     public void updateOrder(int id, OrderRecordDto dto) {
+        log.debug("Updating order with id: {}", id);
         Optional<OrderRecord> existingOrderOpt = orderRepository.findById(id);
         if (existingOrderOpt.isPresent()) {
             OrderRecord existingOrder = existingOrderOpt.get();
