@@ -68,12 +68,12 @@ class OrderControllerTest {
     @Test
     void testCreateOrder() throws Exception {
         OrderRecordDto order = OrderRecordDto.builder()
-                .id(7)
+                .id(2)
                 .date(new Date())
                 .cost(100.0)
                 .products(Arrays.asList(
-                        ProductDto.builder().id(7).name("Product7").cost(50.0).build(),
-                        ProductDto.builder().id(8).name("Product8").cost(50.0).build()
+                        ProductDto.builder().id(3).name("Product3").cost(150.0).build(),
+                        ProductDto.builder().id(4).name("Product4").cost(250.0).build()
                 ))
                 .build();
 
